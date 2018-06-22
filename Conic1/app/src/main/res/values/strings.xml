@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Conic1</string>
+    <string name="app_title">CONIC</string>
+    <string-array name="array_tooling_type">
+        <item>Amada thick type</item>
+        <item>Murata type</item>
+    </string-array>
+    <string-array name="array_drive_system">
+        <item>Mechanical</item>
+        <item>Servo/Hydraulic</item>
+    </string-array>
+    <string-array name="array_material">
+        <item>Mild steel</item>
+        <item>Stainless steel</item>
+        <item>Aluminium</item>
+    </string-array>
+    <string-array name="array_figure">
+        <item>Round</item>
+        <item>Rectangle</item>
+        <item>Obround</item>
+    </string-array>
+    <string-array name="array_shear_angle">
+        <item>None</item>
+        <item>Roof shear 2 degree</item>
+        <item>Roof shear 5 degree</item>
+    </string-array>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tooling_type">Tooling type</string>
+    <string name="drive_system">Drive system</string>
+    <string name="material">Material</string>
+    <string name="figure">Figure</string>
+    <string name="clearance">Clearance</string>
+    <string name="punching_force">Punching force</string>
+    <string name="diameter">Diameter</string>
+    <string name="station">Station</string>
+    <string name="dimension_a">Dimension A</string>
+    <string name="dimension_b">Dimension B</string>
+    <string name="mti_thickness">Mti thickness</string>
+    <string name="dimension_r">Dimension R</string>
+    <string name="more_material">More material</string>
+</resources>

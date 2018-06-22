@@ -55,6 +55,7 @@ public class DatabaseManager {
         }
         return  names;
     }
+
     public static List<Float> getShear(SQLiteDatabase db) {
         List<Float> shears = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT * FROM Material", null);
@@ -66,5 +67,21 @@ public class DatabaseManager {
             cursor.moveToNext();
         }
         return shears;
+    }
+
+    public static float getClearanceCoefficient(SQLiteDatabase db, String drive_system, String material) {
+        String query = "select * from Clearance " +
+                "join Material on Clearance.id_material = Material.id " +
+                "join DriveSystem on Clearance.id_drive_system = DriveSystem.id " +
+                "where Material.name like \"" + material + "\" and DriveSystem.name like \"" + drive_system + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+        if (!cursor.moveToFirst()) {
+            return -1;
+        }
+        else {
+            float result = cursor.getFloat(cursor.getColumnIndex("value"));
+            cursor.close();
+            return result;
+        }
     }
 }

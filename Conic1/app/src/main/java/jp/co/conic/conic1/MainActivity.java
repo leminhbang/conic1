@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.btnNewMaterial:
                 Intent intent = new Intent(this,
                         MaterialActivity.class);
+                String system = (String) spinnerDriveSystem.getSelectedItem();
+                intent.putExtra("DRIVESYSTEM", system);
                 startActivity(intent);
                 break;
         }

@@ -16,13 +16,21 @@
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/edtMaterialName"
-            android:hint="Material name"
+            android:hint="@string/hint_material_name"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <EditText
-            android:id="@+id/edtValue"
-            android:hint="Value (mm)"
+            android:id="@+id/edtShear"
+            android:hint="@string/hint_shear"
+            android:inputType="numberSigned"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edtClearance"
+            android:hint="@string/hint_clearance"
+            android:inputType="numberSigned"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />

@@ -33,7 +33,7 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
     private String mParam2;
     private MainActivity mContext;
 
-    private EditText edtA, edtThickness, edtR;
+    private EditText edtA, edtThickness;
     private Spinner spinnerShearAngle;
     private Button btnCalculate;
     private int steel = 0;
@@ -74,7 +74,6 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
     }
     private void mapView(View v) {
         edtA = v.findViewById(R.id.edtA);
-        edtR = v.findViewById(R.id.edtR);
         edtThickness = v.findViewById(R.id.edtThickness);
         spinnerShearAngle = v.findViewById(R.id.spinnerShearAngle);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -116,15 +115,13 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         String sA = edtA.getText().toString().trim();
         String sthick = edtThickness.getText().toString().trim();
-        String sR = edtR.getText().toString().trim();
-        if (sA.equals("") || sR.equals("") || sthick.equals("")) {
+        if (sA.equals("") || sthick.equals("")) {
             Toast.makeText(mContext,
                     "Empty value, enter full value to calculate",
                     Toast.LENGTH_LONG).show();
             return;
         }
         float a = Float.parseFloat(sA);
-        float r = Float.parseFloat(sR);
         float thickness = Float.parseFloat(sthick);
         float cv = a * 3.14f;
         float punchngForce = cv * thickness *400/1000.0f;

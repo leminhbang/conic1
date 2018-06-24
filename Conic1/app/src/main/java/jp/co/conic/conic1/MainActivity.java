@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 ft.commit();
                 break;
             case 2:
+                ft.replace(R.id.fragmentBody, new ObroundFragment());
+                ft.commit();
                 break;
         }
     }

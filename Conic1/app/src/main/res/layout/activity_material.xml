@@ -48,11 +48,13 @@
         <Button
             android:id="@+id/btnEdit"
             android:text="Edit value"
+            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/btnDelete"
             android:text="Delete material"
+            android:enabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

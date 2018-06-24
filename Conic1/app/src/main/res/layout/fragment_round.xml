@@ -50,36 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/dimension_r"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/edtR"
-                    android:inputType="number"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="mm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
                 android:text="@string/mti_thickness"
                 android:gravity="right"
                 android:layout_gravity="center"

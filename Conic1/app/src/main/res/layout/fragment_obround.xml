@@ -22,7 +22,8 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/dimension_a"
-                android:gravity="right"
+                android:gravity="left"
+                android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -35,11 +36,13 @@
                 <EditText
                     android:id="@+id/edtA"
                     android:inputType="number"
+                    android:fontFamily="@font/carter_one"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:text="mm"
+                    android:fontFamily="@font/carter_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -52,7 +55,8 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/dimension_b"
-                android:gravity="right"
+                android:gravity="left"
+                android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -65,11 +69,13 @@
                 <EditText
                     android:id="@+id/edtB"
                     android:inputType="number"
+                    android:fontFamily="@font/carter_one"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:text="mm"
+                    android:fontFamily="@font/carter_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -81,7 +87,8 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/dimension_r"
-                android:gravity="right"
+                android:gravity="left"
+                android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -94,12 +101,14 @@
                 <EditText
                     android:id="@+id/edtR"
                     android:inputType="number"
+                    android:fontFamily="@font/carter_one"
                     android:enabled="false"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:text="mm"
+                    android:fontFamily="@font/carter_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -111,7 +120,8 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/mti_thickness"
-                android:gravity="right"
+                android:gravity="left"
+                android:fontFamily="@font/carter_one"
                 android:inputType="number"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -125,11 +135,13 @@
                 <EditText
                     android:id="@+id/edtThickness"
                     android:inputType="number"
+                    android:fontFamily="@font/carter_one"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:text="mm"
+                    android:fontFamily="@font/carter_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -144,7 +156,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right"
+                android:gravity="left"
+                android:fontFamily="@font/carter_one"
                 android:text="@string/drive_system" />
 
             <Spinner
@@ -163,6 +176,7 @@
             android:textColor="#5d4ada"
             android:layout_gravity="center_horizontal"
             android:text="Calculate"
+            android:fontFamily="@font/carter_one"
             android:layout_width="wrap_content"
             android:layout_height="40dp" />
     </LinearLayout>

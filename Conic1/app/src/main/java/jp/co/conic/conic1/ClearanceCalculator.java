@@ -18,4 +18,8 @@ public class ClearanceCalculator {
         this.material = material;
         this.thickness = thickness;
     }
+
+    public float getClearance(String drive_system, String material, float thickness) {
+        return -1;
+    }
 }

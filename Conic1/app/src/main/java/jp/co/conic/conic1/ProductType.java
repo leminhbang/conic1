@@ -66,36 +66,46 @@ public class ProductType {
     }
 
     public String getStation(String tooling_type, float diameter) {
+        String station = "";
         if(tooling_type == "Amada") {
-            if(diameter >= 1 || diameter <= 12.7) {
-                amada_station.get(0);
+            if(diameter >= 1 && diameter <= 12.7) {
+                station = amada_station.get(0);
             }
-            for (int i = 2; i <= amada.size(); i++) {
-                if(diameter > amada.get(i - 1) || diameter <= amada.get(i)) {
-                    amada_station.get(i - 1);
+            else {
+                for (int i = 2; i <= amada.size(); i++) {
+                    if(diameter > amada.get(i - 1) && diameter <= amada.get(i)) {
+                        station = amada_station.get(i - 1);
+                        break;
+                    }
                 }
             }
         }
         if(tooling_type == "Murata") {
-            if(diameter >= 1 || diameter <= 12.7) {
-                murata_station.get(0);
+            if(diameter >= 1 && diameter <= 12.7) {
+                station = murata_station.get(0);
             }
-            for (int i = 2; i <= murata.size(); i++) {
-                if(diameter > murata.get(i - 1) || diameter <= murata.get(i)) {
-                    murata_station.get(i - 1);
+            else {
+                for (int i = 2; i <= murata.size(); i++) {
+                    if(diameter > murata.get(i - 1) && diameter <= murata.get(i)) {
+                        station = murata_station.get(i - 1);
+                        break;
+                    }
                 }
             }
         }
         if(tooling_type == "Trumpf") {
-            if(diameter >= 1 || diameter <= 2) {
-                trumpf_station.get(0);
+            if(diameter >= 1 && diameter <= 2) {
+                station = trumpf_station.get(0);
             }
-            for (int i = 2; i <= trumpf.size(); i++) {
-                if(diameter > trumpf.get(i - 1) || diameter <= trumpf.get(i)) {
-                    trumpf_station.get(i - 1);
+            else {
+                for (int i = 2; i <= trumpf.size(); i++) {
+                    if(diameter > trumpf.get(i - 1) && diameter <= trumpf.get(i)) {
+                        station = trumpf_station.get(i - 1);
+                        break;
+                    }
                 }
             }
         }
-        return "NaN";
+        return station;
     }
 }

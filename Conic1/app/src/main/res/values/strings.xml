@@ -41,6 +41,6 @@
     <string name="dimension_r">Dimension R</string>
     <string name="more_material">More material</string>
     <string name="hint_material_name">Material name</string>
-    <string name="hint_shear">Shear (mm)</string>
+    <string name="hint_shear">Shear</string>
     <string name="hint_clearance">Clearance</string>
 </resources>

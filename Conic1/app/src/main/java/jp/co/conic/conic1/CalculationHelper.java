@@ -4,45 +4,67 @@ public class CalculationHelper {
 
     private String tooling_type;
     private String drive_system;
-    private String material;
-    private float perimeter;
+    private float material;
+    private int figure;
+    private float dimension_a;
+    private float dimension_b;
+    private float angle_r;
     private float thickness;
 
     ProductType station;
 
     public CalculationHelper(String tooling_type,
                              String drive_system,
-                             String material,
-                             float perimeter,
+                             float material,
+                             int figure,
+                             float dimension_a,
+                             float dimension_b,
+                             float angle_r,
                              float thickness) {
         this.tooling_type = tooling_type;
         this.drive_system = drive_system;
         this.material = material;
-        this.perimeter = perimeter;
+        this.figure = figure;
+        this.dimension_a = dimension_a;
+        this.dimension_b = dimension_b;
+        this.angle_r = angle_r;
         this.thickness = thickness;
     }
 
-    public float getPunchingForce(float material, float perimeter, float thickness) {
-        float result = (material * perimeter * thickness) / 1000;
-        return result;
-    }
-
-    public float getDiameter(int position, float a, float b, int r) {
-        if(position == 0) {
-            return a * (float)3.14;
+    public float getPerimeter() {
+        if(this.figure == 0) {
+            return this.dimension_a * (float)3.14;
         }
-        if(position == 1) {
-            return (float)Math.sqrt(a*a + b*b);
-        }
-        if(position == 2) {
-            float angle = 2 * r * (float)3.14;
-            return (float)Math.sqrt((float)Math.exp(a - angle) + (float)Math.exp(b - angle)) + angle;
+        if(this.figure == 1 || this.figure == 2) {
+            return (this.dimension_a + this.dimension_b) * 2;
         }
         return -1;
     }
 
-    public String getStation(int position, float a, float b, int r) {
-        station = new ProductType(this.tooling_type, this.getDiameter(position, a, b, r));
-        return station.getStation(this.tooling_type, this.getDiameter(position, a, b, r));
+    public float getClearance() {
+        return -1;
+    }
+
+    public float getPunchingForce() {
+        return (this.material * this.getPerimeter() * this.thickness) / 1000;
+    }
+
+    public float getDiameter() {
+        if(this.figure == 0) {
+            return this.dimension_a * (float)3.14;
+        }
+        if(this.figure == 1) {
+            return (float)Math.sqrt(this.dimension_a*this.dimension_a + this.dimension_b*this.dimension_b);
+        }
+        if(this.figure == 2) {
+            float angle = 2 * this.angle_r * (float)3.14;
+            return (float)Math.sqrt((float)Math.exp(this.dimension_a - angle) + (float)Math.exp(this.dimension_b - angle)) + angle;
+        }
+        return -1;
+    }
+
+    public String getStation() {
+        station = new ProductType(this.tooling_type, this.getDiameter());
+        return station.getStation(this.tooling_type, this.getDiameter());
     }
 }

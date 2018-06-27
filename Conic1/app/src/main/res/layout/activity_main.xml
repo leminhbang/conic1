@@ -37,7 +37,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:fontFamily="@font/carter_one"
+                    android:gravity="left"
                     android:text="@string/tooling_type" />
 
                 <Spinner
@@ -63,7 +64,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/drive_system" />
 
                 <Spinner
@@ -88,7 +90,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/material" />
 
                 <Spinner
@@ -97,17 +100,18 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center"
                     android:spinnerMode="dialog">
                 </Spinner>
 
                 <Button
                     android:id="@+id/btnNewMaterial"
-                    android:text="@string/more_material"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/carter_one"
+                    android:text="@string/more_material" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +124,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/figure" />
 
                 <Spinner
@@ -152,16 +157,28 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/clearance" />
 
-                <TextView
-                    android:id="@+id/txtclearance"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_weight="2"
-                    android:background="@color/gray" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtclearance"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/edittext_style" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/carter_one" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -174,16 +191,30 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/punching_force" />
 
-                <TextView
-                    android:id="@+id/txtPunching_force"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_weight="2"
-                    android:background="@color/gray" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtPunching_force"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/edittext_style" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/carter_one"
+                        android:layout_marginLeft="10dp"
+                        android:text="KN" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -196,16 +227,30 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/diameter" />
 
-                <TextView
-                    android:id="@+id/txtDiameter"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_weight="2"
-                    android:background="@color/gray" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtDiameter"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/edittext_style" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/carter_one"
+                        android:layout_marginLeft="10dp"
+                        android:text="mm" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -218,16 +263,28 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
+                    android:gravity="left"
+                    android:fontFamily="@font/carter_one"
                     android:text="@string/station" />
 
-                <TextView
-                    android:id="@+id/txtStation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_weight="2"
-                    android:background="@color/gray" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtStation"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/edittext_style" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/carter_one" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

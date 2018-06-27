@@ -1,6 +1,7 @@
 package jp.co.conic.conic1;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static jp.co.conic.conic1.MainActivity.SHEAR;
 
 
 /**
@@ -27,6 +30,7 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private final String DBName = "MaterialDB.sqlite";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -37,6 +41,11 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
     private Spinner spinnerShearAngle;
     private Button btnCalculate;
     private int steel = 0;
+
+    private String tooling_type, drive_system, material;
+    private float shear, dimension_a, dimension_b, angle_r, thickness;
+    private int figure;
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -97,15 +106,26 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
         super.onAttach(context);
         if (context instanceof MainActivity) {
             mContext = (MainActivity) context;
-            Spinner spinnerSteel = mContext.findViewById(
-                    R.id.spinner_material);
-            int position = spinnerSteel.getSelectedItemPosition();
+            setValue();
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
+    public void setValue() {
+        Spinner spinnerToolingType = mContext.findViewById(
+                R.id.spinner_tooling_type);
+        Spinner spinnerDriveSystem = mContext.findViewById(
+                R.id.spinner_drive_system);
+        Spinner spinnerMaterial = mContext.findViewById(
+                R.id.spinner_material);
+        Spinner spinnerFigure = mContext.findViewById(
+                R.id.spinner_figure);
+        tooling_type = (String) spinnerToolingType.getSelectedItem();
+        drive_system = (String) spinnerDriveSystem.getSelectedItem();
+        material = (String) spinnerMaterial.getSelectedItem();
+        figure = spinnerFigure.getSelectedItemPosition();
+    }
     @Override
     public void onDetach() {
         super.onDetach();
@@ -113,6 +133,7 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        setValue();
         String sA = edtA.getText().toString().trim();
         String sthick = edtThickness.getText().toString().trim();
         if (sA.equals("") || sthick.equals("")) {
@@ -123,11 +144,24 @@ public class RoundFragment extends Fragment implements View.OnClickListener {
         }
         float a = Float.parseFloat(sA);
         float thickness = Float.parseFloat(sthick);
-        float cv = a * 3.14f;
-        float punchngForce = cv * thickness *400/1000.0f;
-        TextView txt = mContext.findViewById(R.id.txtPunching_force);
-        txt.setText(String.valueOf(punchngForce));
+        shear = SHEAR;
+        CalculationHelper cal = new CalculationHelper(tooling_type,
+                drive_system, material, shear, figure, a, 0.0f,
+                0.0f, thickness);
+        SQLiteDatabase db = DatabaseManager.initDatabase(mContext, DBName);
+        float clearance = cal.getClearance(db);
+        float punch_force = cal.getPunchingForce();
+        float diameter = cal.getDiameter();
+        String station = cal.getStation();
 
+        TextView txtClearance = mContext.findViewById(R.id.txtClearance);
+        txtClearance.setText(String.valueOf(clearance));
+        TextView txtPunchForce = mContext.findViewById(R.id.txtPunching_force);
+        txtPunchForce.setText(String.valueOf(punch_force));
+        TextView txtDiameter = mContext.findViewById(R.id.txtDiameter);
+        txtDiameter.setText(String.valueOf(diameter));
+        TextView txtStation = mContext.findViewById(R.id.txtStation);
+        txtStation.setText(station);
     }
 
     /*

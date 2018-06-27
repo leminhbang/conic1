@@ -80,7 +80,6 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         int id = view.getId();
         switch (id) {
             case R.id.btnAdd:
-                //insert();
                 showAddDialog();
                 break;
             case R.id.btnEdit:
@@ -93,21 +92,37 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void showAddDialog() {
-        Dialog dialog = new Dialog(this);
+        final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.layout_add_new_material);
         dialog.setCanceledOnTouchOutside(false);
 
+        //map view
+        final EditText eName = dialog.findViewById(R.id.edtMaterialName);
+        final EditText eShear = dialog.findViewById(R.id.edtShear);
+        final EditText eClearance = dialog.findViewById(R.id.edtClearance);
+        dialog.findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = eName.getText().toString().trim();
+                String shear = eShear.getText().toString().trim();
+                String clearance = eClearance.getText().toString().trim();
+                insert(name, shear, clearance);
+            }
+        });
+        dialog.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
 
-    private void insert() {
+    private void insert(String name, String shear, String clearance) {
         if (!checkValueValidate()) {
             return;
         }
-        String name = edtName.getText().toString().trim();
-        String shear = edtShear.getText().toString().trim();
-        String clearance = edtClearance.getText().toString().trim();
 
         boolean isExist = DatabaseManager.checkIsMaterialExist(
                 database, name);

@@ -51,7 +51,7 @@ public class CalculationHelper {
     }
 
     public float getClearance(SQLiteDatabase database) {
-        return this.thickness * clearance.getClearance(database);
+        return clearance.getClearance(database);
     }
 
     public float getPunchingForce() {
@@ -60,19 +60,16 @@ public class CalculationHelper {
 
     public float getDiameter() {
         if(this.figure == 0) {
-            return this.dimension_a * (float)3.14;
+            return this.dimension_a;
         }
-        if(this.figure == 1) {
-            return (float)Math.sqrt(this.dimension_a*this.dimension_a + this.dimension_b*this.dimension_b);
-        }
-        if(this.figure == 2) {
+        if(this.figure == 1 || this.figure == 2) {
             float angle = 2 * this.angle_r * (float)3.14;
-            return (float)Math.sqrt((float)Math.exp(this.dimension_a - angle) + (float)Math.exp(this.dimension_b - angle)) + angle;
+            return (float)Math.sqrt((this.dimension_a - angle)*(this.dimension_a - angle) + (this.dimension_b - angle)*(this.dimension_b - angle)) + angle;
         }
         return -1;
     }
 
     public String getStation() {
-        return station.getStation(this.tooling_type, this.getDiameter());
+        return station.getStation();
     }
 }

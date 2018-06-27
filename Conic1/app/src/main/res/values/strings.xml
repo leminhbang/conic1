@@ -4,6 +4,7 @@
     <string-array name="array_tooling_type">
         <item>Amada thick type</item>
         <item>Murata type</item>
+        <item>Trumpf type</item>
     </string-array>
     <string-array name="array_drive_system">
         <item>Mechanical</item>

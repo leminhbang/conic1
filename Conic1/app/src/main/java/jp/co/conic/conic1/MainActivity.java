@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button btnNewMaterial;
     SQLiteDatabase database;
     List<String> materialNames;
-
+    List<Material> materials;
+    public static float SHEAR;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter4.setDropDownViewResource(android.R.layout.
                 select_dialog_singlechoice);
         materialNames = new ArrayList<>();
+        materials = new ArrayList<>();
         spinnerFigure.setAdapter(adapter4);
         spinnerToolingType.setOnItemSelectedListener(this);
         spinnerToolingType.setSelection(0);
@@ -90,9 +92,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     private void displayData() {
         materialNames.clear();
+        materials.clear();
         String system = (String) spinnerDriveSystem.
                 getSelectedItem();
-        List<Material> materials = DatabaseManager.
+        materials = DatabaseManager.
                 getMaterialData(database, system);
         if (materials == null) {
             materialNames = Arrays.asList(getResources().getStringArray(
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerMaterial.setAdapter(adapter);
     }
     public void selectShape(int position) {
+        SHEAR = materials.get(spinnerMaterial.getSelectedItemPosition()).getShear();
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         switch (position) {
@@ -137,6 +141,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.spinner_tooling_type:
                 break;
             case R.id.spinner_drive_system:
+                String system = (String) spinnerDriveSystem.
+                        getSelectedItem();
+                materials = DatabaseManager.
+                        getMaterialData(database, system);
                 break;
             case R.id.spinner_material:
                 break;

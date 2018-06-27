@@ -6,15 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Add new material"
-        android:textSize="30sp"
-        android:textColor="#f2bd67"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="30dp"
@@ -23,9 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Name"
+            android:text="Material"
             android:gravity="right"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <EditText
@@ -52,12 +43,12 @@
         <TextView
             android:text="Shear"
             android:gravity="right"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <EditText
             android:id="@+id/edtShear"
-            android:hint="@string/hint_material_name"
+            android:hint="@string/hint_shear"
             android:inputType="numberSigned"
             android:digits="@string/dot_sign"
             android:layout_weight="2"
@@ -79,12 +70,12 @@
         <TextView
             android:text="Clearance"
             android:gravity="right"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <EditText
             android:id="@+id/edtClearance"
-            android:hint="@string/hint_material_name"
+            android:hint="@string/hint_clearance"
             android:inputType="numberSigned"
             android:digits="@string/dot_sign"
             android:layout_weight="2"

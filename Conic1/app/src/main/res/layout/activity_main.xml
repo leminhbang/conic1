@@ -173,7 +173,8 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/txtclearance"
+                        android:id="@+id/txtClearance"
+                        android:padding="5dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -208,6 +209,7 @@
 
                     <TextView
                         android:id="@+id/txtPunching_force"
+                        android:padding="5dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -244,6 +246,7 @@
 
                     <TextView
                         android:id="@+id/txtDiameter"
+                        android:padding="5dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -280,6 +283,7 @@
 
                     <TextView
                         android:id="@+id/txtStation"
+                        android:padding="5dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"

@@ -14,6 +14,7 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="bottom"
         android:gravity="bottom"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
@@ -45,6 +46,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="center"
+        android:background="#FFFFFF"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
@@ -76,6 +78,7 @@
         android:id="@+id/lvMaterial"
         android:fontFamily="@font/carter_one"
         android:layout_margin="20dp"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

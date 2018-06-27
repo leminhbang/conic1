@@ -107,7 +107,14 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
                 String name = eName.getText().toString().trim();
                 String shear = eShear.getText().toString().trim();
                 String clearance = eClearance.getText().toString().trim();
+                if (name.equals("") || shear.equals("") || clearance.equals("")) {
+                    Toast.makeText(MaterialActivity.this,
+                            "Empty value, Please enter full fields to continue",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
                 insert(name, shear, clearance);
+                dialog.dismiss();
             }
         });
         dialog.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
@@ -120,9 +127,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void insert(String name, String shear, String clearance) {
-        if (!checkValueValidate()) {
-            return;
-        }
+
 
         boolean isExist = DatabaseManager.checkIsMaterialExist(
                 database, name);

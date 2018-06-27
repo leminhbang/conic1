@@ -59,7 +59,7 @@
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/btnEdit"
-            android:text="Edit value"
+            android:text="Update value"
             android:fontFamily="@font/carter_one"
             android:enabled="false"
             android:visibility="invisible"

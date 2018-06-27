@@ -1,5 +1,6 @@
 package jp.co.conic.conic1;
 
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -78,7 +80,8 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         int id = view.getId();
         switch (id) {
             case R.id.btnAdd:
-                insert();
+                //insert();
+                showAddDialog();
                 break;
             case R.id.btnEdit:
                 update(POSITION);
@@ -87,6 +90,15 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
                 delete(POSITION);
                 break;
         }
+    }
+
+    private void showAddDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.layout_add_new_material);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.show();
     }
 
     private void insert() {
@@ -197,6 +209,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
                     Toast.LENGTH_LONG).show();
             return;
         }
+
         String name = materials.get(position).getName();
         float shear = materials.get(position).getShear();
         float clearance= materials.get(position).getClearance();

@@ -157,7 +157,7 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:fontFamily="@font/carter_one"
-                android:text="@string/drive_system" />
+                android:text="@string/shear_angle" />
 
             <Spinner
                 android:id="@+id/spinnerShearAngle"

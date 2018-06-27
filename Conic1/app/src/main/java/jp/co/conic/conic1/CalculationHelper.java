@@ -1,10 +1,13 @@
 package jp.co.conic.conic1;
 
+import android.database.sqlite.SQLiteDatabase;
+
 public class CalculationHelper {
 
     private String tooling_type;
     private String drive_system;
-    private float material;
+    private String material;
+    private float shear;
     private int figure;
     private float dimension_a;
     private float dimension_b;
@@ -12,10 +15,12 @@ public class CalculationHelper {
     private float thickness;
 
     ProductType station;
+    ClearanceCalculator clearance;
 
     public CalculationHelper(String tooling_type,
                              String drive_system,
-                             float material,
+                             String material,
+                             float shear,
                              int figure,
                              float dimension_a,
                              float dimension_b,
@@ -24,11 +29,15 @@ public class CalculationHelper {
         this.tooling_type = tooling_type;
         this.drive_system = drive_system;
         this.material = material;
+        this.shear = shear;
         this.figure = figure;
         this.dimension_a = dimension_a;
         this.dimension_b = dimension_b;
         this.angle_r = angle_r;
         this.thickness = thickness;
+
+        station = new ProductType(this.tooling_type, this.getDiameter());
+        clearance = new ClearanceCalculator(this.drive_system, this.material, this.thickness);
     }
 
     public float getPerimeter() {
@@ -41,12 +50,12 @@ public class CalculationHelper {
         return -1;
     }
 
-    public float getClearance() {
-        return -1;
+    public float getClearance(SQLiteDatabase database) {
+        return this.thickness * clearance.getClearance(database);
     }
 
     public float getPunchingForce() {
-        return (this.material * this.getPerimeter() * this.thickness) / 1000;
+        return (this.shear * this.getPerimeter() * this.thickness) / 1000;
     }
 
     public float getDiameter() {
@@ -64,7 +73,6 @@ public class CalculationHelper {
     }
 
     public String getStation() {
-        station = new ProductType(this.tooling_type, this.getDiameter());
         return station.getStation(this.tooling_type, this.getDiameter());
     }
 }

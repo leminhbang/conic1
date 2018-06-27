@@ -40,6 +40,7 @@ public class DatabaseManager {
         }
         return activity.openOrCreateDatabase(databaseName, Context.MODE_PRIVATE, null);
     }
+
     public static List<Material> getMaterialData(SQLiteDatabase db, String driveSystem) {
         List<Material> data = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT * FROM Material", null);
@@ -74,6 +75,14 @@ public class DatabaseManager {
         id = cursor.getInt(cursor.getColumnIndex("id"));
         return  id;
     }
+
+    public static boolean checkIsMaterialExist(SQLiteDatabase db, String name) {
+        name = name.toLowerCase().trim();
+        Cursor cursor = db.rawQuery("SELECT * FROM Material WHERE LOWER(name) = ?",
+                new String[] {name.trim()});
+        return cursor.moveToFirst();
+    }
+
     //lay ten vat lieu (material name), chua can su dung
     public static List<String> getMaterialName(SQLiteDatabase db) {
         List<String> names = new ArrayList<>();

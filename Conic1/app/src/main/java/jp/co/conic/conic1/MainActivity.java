@@ -12,18 +12,25 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
+    private final String DBName = "MaterialDB.sqlite";
     private Spinner spinnerToolingType, spinnerDriveSystem,
             spinnerMaterial, spinnerFigure;
     private Button btnNewMaterial;
     SQLiteDatabase database;
+    List<String> materialNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        database = DatabaseManager.initDatabase(this, DBName);
         /*database = DatabaseManager.initDatabase(this, "MaterialDB.sqlite");
         Cursor cursor = database.rawQuery("SELECT * FROM mATERIAL", null);
         cursor.moveToFirst();
@@ -32,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Toast.LENGTH_LONG).show();*/
 
         mapView();
+    }
+
+    @Override
+    protected void onStart() {
+        displayData();
+        super.onStart();
     }
 
     private void mapView() {
@@ -64,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.
                 select_dialog_singlechoice);
+        materialNames = new ArrayList<>();
         spinnerFigure.setAdapter(adapter4);
         spinnerToolingType.setOnItemSelectedListener(this);
         spinnerToolingType.setSelection(0);
@@ -73,6 +87,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerMaterial.setSelection(0);
         spinnerFigure.setOnItemSelectedListener(this);
         spinnerFigure.setSelection(0);
+    }
+    private void displayData() {
+        materialNames.clear();
+        String system = (String) spinnerDriveSystem.
+                getSelectedItem();
+        List<Material> materials = DatabaseManager.
+                getMaterialData(database, system);
+        if (materials == null) {
+            materialNames = Arrays.asList(getResources().getStringArray(
+                    R.array.array_material));
+        }else {
+            for (int i = 0; i < materials.size(); i++) {
+                materialNames.add(materials.get(i).getName());
+            }
+        }
+        ArrayAdapter adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item,
+                materialNames.toArray());
+        adapter.setDropDownViewResource(android.R.layout.
+                select_dialog_singlechoice);
+        spinnerMaterial.setAdapter(adapter);
     }
     public void selectShape(int position) {
         FragmentManager fm = getSupportFragmentManager();
@@ -129,4 +164,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
         }
     }
+
 }

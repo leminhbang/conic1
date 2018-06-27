@@ -34,8 +34,8 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtA"
-                    android:inputType="number"
-                    android:fontFamily="@font/carter_one"
+                    android:inputType="numberSigned"
+                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
@@ -67,8 +67,8 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtThickness"
-                    android:inputType="number"
-                    android:fontFamily="@font/carter_one"
+                    android:inputType="numberSigned"
+                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />

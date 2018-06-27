@@ -12,6 +12,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
@@ -26,7 +28,8 @@
             android:hint="@string/hint_shear"
             android:fontFamily="@font/carter_one"
             android:inputType="numberSigned"
-            android:layout_weight="2"
+            android:digits="@string/dot_sign"
+            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <EditText
@@ -34,13 +37,16 @@
             android:hint="@string/hint_clearance"
             android:fontFamily="@font/carter_one"
             android:inputType="numberSigned"
-            android:layout_weight="2"
+            android:digits="@string/dot_sign"
+            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
@@ -54,6 +60,7 @@
             android:text="Edit value"
             android:fontFamily="@font/carter_one"
             android:enabled="false"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
@@ -61,6 +68,7 @@
             android:text="Delete material"
             android:fontFamily="@font/carter_one"
             android:enabled="false"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

@@ -42,6 +42,7 @@
     <string name="shear_angle">Shear angle</string>
     <string name="more_material">More material</string>
     <string name="hint_material_name">Material name</string>
-    <string name="hint_shear">Shear</string>
-    <string name="hint_clearance">Clearance</string>
+    <string name="hint_shear">Shear (mm)</string>
+    <string name="hint_clearance">Clearance (mm)</string>
+    <string name="dot_sign">0123456789.</string>
 </resources>

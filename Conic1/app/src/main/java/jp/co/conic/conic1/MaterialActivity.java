@@ -219,7 +219,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         displayData();
     }
 
-    public void delete(int position) {
+    public void delete(final int position) {
         //confirm to delete
         final int id_material = materials.get(position).getId();
         if (id_material == 1 || id_material == 2 ||
@@ -241,8 +241,11 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                int id_clearance = materials.get(position).getId_clearance();
                 database.delete("Material",
                         "id = ?", new String[] {id_material + ""});
+                database.delete("Clearance", "id = ?",
+                         new String[] {id_clearance + ""});
                 displayData();
             }
         });

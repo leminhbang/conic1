@@ -8,11 +8,19 @@
     tools:context=".MainActivity">
     <LinearLayout
         android:orientation="vertical"
+<<<<<<< Updated upstream
         android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/conic_logo_1"
+=======
+        android:background="#fdf8f8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/logo_conic_2"
+>>>>>>> Stashed changes
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

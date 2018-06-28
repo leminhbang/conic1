@@ -100,20 +100,23 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         //map view
         final EditText eName = dialog.findViewById(R.id.edtMaterialName);
         final EditText eShear = dialog.findViewById(R.id.edtShear);
-        final EditText eClearance = dialog.findViewById(R.id.edtClearance);
+        final EditText eClearance_1 = dialog.findViewById(R.id.edtClearance_1);
+        final EditText eClearance_2 = dialog.findViewById(R.id.edtClearance_2);
         dialog.findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = eName.getText().toString().trim();
                 String shear = eShear.getText().toString().trim();
-                String clearance = eClearance.getText().toString().trim();
-                if (name.equals("") || shear.equals("") || clearance.equals("")) {
+                String clearance_1 = eClearance_1.getText().toString().trim();
+                String clearance_2 = eClearance_2.getText().toString().trim();
+                if (name.equals("") || shear.equals("") ||
+                        clearance_1.equals("") || clearance_2.equals("")) {
                     Toast.makeText(MaterialActivity.this,
                             "Empty value, Please enter full fields to continue",
                             Toast.LENGTH_LONG).show();
                     return;
                 }
-                insert(name, shear, clearance);
+                insert(name, shear, clearance_1, clearance_2);
                 dialog.dismiss();
             }
         });
@@ -126,7 +129,8 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         dialog.show();
     }
 
-    private void insert(String name, String shear, String clearance) {
+    private void insert(String name, String shear,
+                        String clearance, String clearance_2) {
 
 
         boolean isExist = DatabaseManager.checkIsMaterialExist(
@@ -148,13 +152,18 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         //get last material id, the new material id is
         //increase by 1
         ContentValues values_2 = new ContentValues();
+        ContentValues values_3 = new ContentValues();
         int id_material = materials.get(materials.size() - 1).getId() + 1;
         int id_drive_system = DatabaseManager.getDriveSystemID(
                 database, driveSystemName);
         float clearanceVal = Float.parseFloat(clearance);
+        float clearanceVal_2 = Float.parseFloat(clearance_2);
         values_2.put("id_material", id_material);
         values_2.put("id_drive_system", id_drive_system);
         values_2.put("value", clearanceVal);;
+        values_3.put("id_material", id_material);
+        values_3.put("id_drive_system", id_drive_system);
+        values_3.put("value", clearanceVal_2);;
 
         if (id_material == -1 || id_drive_system == -1) {
             Toast.makeText(this,
@@ -164,6 +173,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         }
         database.insert("Material", null, values);
         database.insert("Clearance", null, values_2);
+        database.insert("Clearance", null, values_3);
         Toast.makeText(this,
                 "Add new material finished",
                 Toast.LENGTH_LONG).show();

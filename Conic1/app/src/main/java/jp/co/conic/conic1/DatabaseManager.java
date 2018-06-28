@@ -54,13 +54,14 @@ public class DatabaseManager {
             int id = cursor.getInt(cursor.getColumnIndex("id"));
             Cursor c = db.rawQuery("SELECT * FROM Clearance WHERE id_material = " +
                     id + " and id_drive_system = " + idSystem, null);
-            c.moveToFirst();
-            data.add(new Material(
-                    cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("name")),
-                    cursor.getFloat(cursor.getColumnIndex("shear")),
-                    c.getFloat(c.getColumnIndex("value")),
-                    c.getInt(0)));
+            if (c.moveToFirst()) {
+                data.add(new Material(
+                        cursor.getInt(cursor.getColumnIndex("id")),
+                        cursor.getString(cursor.getColumnIndex("name")),
+                        cursor.getFloat(cursor.getColumnIndex("shear")),
+                        c.getFloat(c.getColumnIndex("value")),
+                        c.getInt(0)));
+            }
             cursor.moveToNext();
         }
         return data;

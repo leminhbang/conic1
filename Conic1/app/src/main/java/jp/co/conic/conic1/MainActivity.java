@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onStart() {
+        database = DatabaseManager.initDatabase(this, DBName);
         displayData();
         super.onStart();
     }
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         materials.clear();
         String system = (String) spinnerDriveSystem.
                 getSelectedItem();
+        database = DatabaseManager.initDatabase(this, DBName);
         materials = DatabaseManager.
                 getMaterialData(database, system);
         if (materials == null) {
@@ -146,11 +148,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.spinner_tooling_type:
                 break;
             case R.id.spinner_drive_system:
+                database = DatabaseManager.initDatabase(this, DBName);
                 String system = (String) spinnerDriveSystem.
                         getSelectedItem();
                 materials.clear();
                 materials = DatabaseManager.
                         getMaterialData(database, system);
+                displayData();
                 break;
             case R.id.spinner_material:
                 break;

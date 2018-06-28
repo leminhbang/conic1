@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     List<String> materialNames;
     List<Material> materials;
     public static float SHEAR;
+    private ImageView imgLogo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void mapView() {
+        imgLogo = findViewById(R.id.imgLogoConic);
+        imgLogo.setOnClickListener(this);
         btnNewMaterial = findViewById(R.id.btnNewMaterial);
         btnNewMaterial.setOnClickListener(this);
         spinnerToolingType = findViewById(R.id.spinner_tooling_type);
@@ -143,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.spinner_drive_system:
                 String system = (String) spinnerDriveSystem.
                         getSelectedItem();
+                materials.clear();
                 materials = DatabaseManager.
                         getMaterialData(database, system);
                 break;
@@ -169,6 +175,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String system = (String) spinnerDriveSystem.getSelectedItem();
                 intent.putExtra("DRIVESYSTEM", system);
                 startActivity(intent);
+                break;
+            case R.id.imgLogoConic:
+                Intent homepageIntent = new Intent(this,
+                        HomePageActivity.class);
+                startActivity(homepageIntent);
                 break;
         }
     }

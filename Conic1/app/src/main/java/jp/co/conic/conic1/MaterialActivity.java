@@ -7,13 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -102,6 +106,20 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         final EditText eShear = dialog.findViewById(R.id.edtShear);
         final EditText eClearance_1 = dialog.findViewById(R.id.edtClearance_1);
         final EditText eClearance_2 = dialog.findViewById(R.id.edtClearance_2);
+        final EditText eClearance = dialog.findViewById(R.id.edtClearance);
+        final TextView txtShearResistance = dialog.findViewById(R.id.txtShearResistance);
+        txtShearResistance.setText(Html.fromHtml("N/mm<sup>2</sup>"));
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int displayWidth = displayMetrics.widthPixels;
+        int displayHeight = displayMetrics.heightPixels;
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.copyFrom(dialog.getWindow().getAttributes());
+        int dialogWindowWidth = (int) (displayWidth * 0.9f);
+        int dialogWindowHeight = (int) (displayHeight * 0.65f);
+        layoutParams.width = dialogWindowWidth;
+        layoutParams.height = dialogWindowHeight;
+        dialog.getWindow().setAttributes(layoutParams);
         dialog.findViewById(R.id.btnOK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,10 +177,10 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         float clearanceVal = Float.parseFloat(clearance);
         float clearanceVal_2 = Float.parseFloat(clearance_2);
         values_2.put("id_material", id_material);
-        values_2.put("id_drive_system", id_drive_system);
+        values_2.put("id_drive_system", 1);
         values_2.put("value", clearanceVal);;
         values_3.put("id_material", id_material);
-        values_3.put("id_drive_system", id_drive_system);
+        values_3.put("id_drive_system", 2);
         values_3.put("value", clearanceVal_2);;
 
         if (id_material == -1 || id_drive_system == -1) {

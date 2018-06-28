@@ -26,6 +26,7 @@
                 android:gravity="left"
                 android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
+                android:paddingLeft="5dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -61,6 +62,7 @@
                 android:gravity="left"
                 android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
+                android:paddingLeft="5dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
@@ -97,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:text="@string/shear_angle" />
 

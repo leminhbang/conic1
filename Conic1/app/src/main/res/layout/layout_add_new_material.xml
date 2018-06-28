@@ -8,12 +8,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingTop="20dp"
+        android:fontFamily="@font/carter_one"
         android:text="Material name" />
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:orientation="horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -22,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:hint="Material"
+            android:fontFamily="@font/carter_one"
             android:textSize="16sp" />
 
         <TextView
@@ -34,10 +37,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:fontFamily="@font/carter_one"
         android:text="Shear resistance" />
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,67 +54,76 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:digits="@string/dot_sign"
-            android:hint="Shear resistance"
+            android:fontFamily="@font/carter_one"
             android:inputType="numberSigned"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/txtShearResistance"
             android:layout_width="0dp"
+            android:fontFamily="@font/carter_one"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:paddingTop="2dp"
             android:text=" N/mm2" />
     </LinearLayout>
 
     <TextView
-        android:text="Mechanical system"
+        android:text="Clearance ratio of Mechanical"
+        android:paddingLeft="40dp"
+        android:fontFamily="@font/carter_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:paddingLeft="40dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/edtClearance_1"
             android:layout_width="0dp"
+            android:fontFamily="@font/carter_one"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:digits="@string/dot_sign"
-            android:hint="Clearance ratio"
             android:inputType="numberSigned"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
+            android:fontFamily="@font/carter_one"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text=" mm" />
     </LinearLayout>
     <TextView
-        android:text="Servo/Hydraulic system"
+        android:text="Clearance ratio of Servo/Hydraulic"
+        android:paddingLeft="40dp"
+        android:fontFamily="@font/carter_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/edtClearance_2"
             android:layout_width="0dp"
+            android:fontFamily="@font/carter_one"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:digits="@string/dot_sign"
-            android:hint="Clearance ratio"
             android:inputType="numberSigned"
             android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
+            android:fontFamily="@font/carter_one"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text=" mm" />
@@ -126,12 +140,14 @@
 
         <Button
             android:id="@+id/btnOK"
+            android:fontFamily="@font/carter_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK" />
 
         <Button
             android:id="@+id/btnCancel"
+            android:fontFamily="@font/carter_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

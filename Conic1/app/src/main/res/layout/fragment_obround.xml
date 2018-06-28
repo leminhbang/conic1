@@ -24,6 +24,7 @@
             <TextView
                 android:text="@string/dimension_a"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -58,6 +59,7 @@
             <TextView
                 android:text="@string/dimension_b"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -91,6 +93,7 @@
             <TextView
                 android:text="@string/dimension_r"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -125,6 +128,7 @@
             <TextView
                 android:text="@string/mti_thickness"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:inputType="number"
                 android:layout_gravity="center"
@@ -162,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
+                android:paddingLeft="5dp"
                 android:fontFamily="@font/carter_one"
                 android:text="@string/shear_angle" />
 

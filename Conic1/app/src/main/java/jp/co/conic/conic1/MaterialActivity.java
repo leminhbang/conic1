@@ -270,10 +270,10 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 int id_clearance = materials.get(position).getId_clearance();
+                database.delete("Clearance", "id_material = ?",
+                        new String[] {id_material + ""});
                 database.delete("Material",
                         "id = ?", new String[] {id_material + ""});
-                database.delete("Clearance", "id = ?",
-                         new String[] {id_clearance + ""});
                 displayData();
             }
         });

@@ -106,7 +106,6 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         final EditText eShear = dialog.findViewById(R.id.edtShear);
         final EditText eClearance_1 = dialog.findViewById(R.id.edtClearance_1);
         final EditText eClearance_2 = dialog.findViewById(R.id.edtClearance_2);
-        final EditText eClearance = dialog.findViewById(R.id.edtClearance);
         final TextView txtShearResistance = dialog.findViewById(R.id.txtShearResistance);
         txtShearResistance.setText(Html.fromHtml("N/mm<sup>2</sup>"));
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -248,7 +247,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void delete(final int position) {
-        //confirm to delete
+        if (position == -1) return;
         final int id_material = materials.get(position).getId();
         if (id_material == 1 || id_material == 2 ||
                 id_material == 3) {
@@ -261,6 +260,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         String name = materials.get(position).getName();
         float shear = materials.get(position).getShear();
         float clearance= materials.get(position).getClearance();
+        //confirm to delete
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete");
         builder.setMessage("Do you want to delete " + name +
@@ -274,6 +274,13 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
                         new String[] {id_material + ""});
                 database.delete("Material",
                         "id = ?", new String[] {id_material + ""});
+                //clear data in edit text and unabled delete button
+                btnDelete.setEnabled(false);
+                btnEdit.setEnabled(false);
+                edtName.setText("");
+                edtShear.setText("");
+                edtClearance.setText("");
+                POSITION = -1;
                 displayData();
             }
         });

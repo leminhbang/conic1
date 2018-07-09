@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
@@ -64,7 +65,9 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
     private void mapView() {
         edtName = findViewById(R.id.edtMaterialName);
         edtShear = findViewById(R.id.edtShear);
+        edtShear.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         edtClearance = findViewById(R.id.edtClearance);
+        edtClearance.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
         btnEdit = findViewById(R.id.btnEdit);
@@ -104,8 +107,11 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         //map view
         final EditText eName = dialog.findViewById(R.id.edtMaterialName);
         final EditText eShear = dialog.findViewById(R.id.edtShear);
+        eShear.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         final EditText eClearance_1 = dialog.findViewById(R.id.edtClearance_1);
+        eClearance_1.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         final EditText eClearance_2 = dialog.findViewById(R.id.edtClearance_2);
+        eClearance_2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         final TextView txtShearResistance = dialog.findViewById(R.id.txtShearResistance);
         txtShearResistance.setText(Html.fromHtml("N/mm<sup>2</sup>"));
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -115,7 +121,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.copyFrom(dialog.getWindow().getAttributes());
         int dialogWindowWidth = (int) (displayWidth * 0.9f);
-        int dialogWindowHeight = (int) (displayHeight * 0.65f);
+        int dialogWindowHeight = (int) (displayHeight * 0.53f);
         layoutParams.width = dialogWindowWidth;
         layoutParams.height = dialogWindowHeight;
         dialog.getWindow().setAttributes(layoutParams);
@@ -264,8 +270,7 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete");
         builder.setMessage("Do you want to delete " + name +
-            " material, shear = " + shear + " (mm), clearance = " +
-            clearance + " (mm)?");
+            " material?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

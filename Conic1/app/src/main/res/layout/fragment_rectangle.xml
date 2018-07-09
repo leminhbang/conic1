@@ -38,8 +38,6 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtA"
-                    android:inputType="numberSigned"
-                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
@@ -73,8 +71,6 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtB"
-                    android:inputType="numberSigned"
-                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
@@ -107,13 +103,11 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtR"
-                    android:inputType="numberSigned"
-                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="mm"
+                    android:text="degrees"
                     android:fontFamily="@font/carter_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -143,8 +137,6 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/edtThickness"
-                    android:inputType="numberSigned"
-                    android:digits="@string/dot_sign"
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" />

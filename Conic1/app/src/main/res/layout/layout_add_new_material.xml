@@ -43,6 +43,7 @@
                     android:layout_weight="2" />
             </LinearLayout>
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,9 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:digits="@string/dot_sign"
                     android:fontFamily="@font/carter_one"
-                    android:inputType="numberSigned"
                     android:textSize="16sp" />
 
                 <TextView
@@ -73,9 +72,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:fontFamily="@font/carter_one"
-                    android:paddingTop="2dp"
-                    android:text=" N/mm2" />
+                    android:paddingTop="2dp"/>
             </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -87,18 +87,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
                 android:layout_marginRight="10dp"
-                android:orientation="horizontal"
-                android:paddingLeft="40dp">
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/edtClearance_1"
                     android:layout_width="0dp"
+                    android:fontFamily="@font/carter_one"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:digits="@string/dot_sign"
-                    android:fontFamily="@font/carter_one"
-                    android:inputType="numberSigned"
                     android:textSize="16sp" />
 
                 <TextView
@@ -126,11 +124,9 @@
                 <EditText
                     android:id="@+id/edtClearance_2"
                     android:layout_width="0dp"
+                    android:fontFamily="@font/carter_one"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:digits="@string/dot_sign"
-                    android:fontFamily="@font/carter_one"
-                    android:inputType="numberSigned"
                     android:textSize="16sp" />
 
                 <TextView

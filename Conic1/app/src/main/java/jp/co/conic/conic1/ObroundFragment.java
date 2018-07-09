@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,9 +83,13 @@ public class ObroundFragment extends Fragment implements View.OnClickListener {
 
     private void mapView(View v) {
         edtA = v.findViewById(R.id.edtA);
+        edtA.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         edtR = v.findViewById(R.id.edtR);
+        edtR.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         edtB = v.findViewById(R.id.edtB);
+        edtB.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         edtThickness = v.findViewById(R.id.edtThickness);
+        edtThickness.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         spinnerShearAngle = v.findViewById(R.id.spinnerShearAngle);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 mContext, R.array.array_shear_angle,
